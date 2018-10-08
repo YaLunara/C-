@@ -9,44 +9,79 @@ namespace program2
     {
         public class Order
         {
-            public struct myOrder
+            private string orderNum;
+            private string goodsName;
+            private string client;
+            public Order(string orderNum, string goodsName, string client)
             {
-                public string orderNum { get; set; }
-                public string goodsName { get; set; }
-                public string client { get; set; }
-                public myOrder(string orderNum, string goodsName, string client)
+                this.orderNum = orderNum;
+                this.goodsName = goodsName;
+                this.client = client;
+            }
+            public string order
+            {
+                get
                 {
-                    this.orderNum = orderNum;
-                    this.goodsName = goodsName;
-                    this.client = client;
+                    return orderNum;
+                }
+                set
+                {
+                    orderNum = value;
+                }
+            }
+            public string goods
+            {
+                get
+                {
+                    return goodsName;
+                }
+                set
+                {
+                    goodsName = value;
+                }
+            }
+            public string cl
+            {
+                get
+                {
+                    return client;
+                }
+                set
+                {
+                    client = value;
                 }
             }
         }
         
-        public class OrderDetails : Order
+        public class OrderDetails
         {
             //初始化写入一部分订单
-            public List<myOrder> Inf = new List<myOrder>()
+            public List<Order> Inf = new List<Order>()
             {
-                new myOrder("1","a","A"),
-                new myOrder("2","b","B"),
-                new myOrder("3","c","C")
+                new Order("1","a","A"),
+                new Order("2","b","B"),
+                new Order("3","c","C")
             };
+           
+        }
+        //查询订单
+        public class OrderService:OrderDetails
+        {
             //添加订单
             public void addOrder(string orderNum, string goodsName, string client)
             {
-                Inf.Add(new myOrder(orderNum, goodsName, client));
+                Inf.Add(new Order(orderNum, goodsName, client));
                 Console.WriteLine("已添加订单" + orderNum + goodsName + client);
             }
             //删除订单
-            public void deleteOrder(myOrder delOrder)
+            public void deleteOrder(Order delOrder)
             {
-                foreach (myOrder order in Inf)
+                foreach (Order order in Inf)
                 {
-                    if (order.orderNum == delOrder.orderNum && order.goodsName == delOrder.goodsName && order.client == delOrder.client)
+                    if (order.order == delOrder.order && order.goods == delOrder.goods && order.cl == delOrder.cl)
                     {
                         Inf.Remove(order);
-                        Console.WriteLine("已删除订单" + delOrder.orderNum + delOrder.goodsName + delOrder.client);
+                        Console.WriteLine("已删除订单" + delOrder.order + delOrder.goods + delOrder.cl);
                         break;
                     }
                     else
@@ -56,39 +91,35 @@ namespace program2
                 }
             }
             //修改订单
-            public void changeOrder(myOrder border,string orderNum,string goodsName,string client)
+            public void changeOrder(Order border, string orderNum, string goodsName, string client)
             {
-                var tempMyOrder = new myOrder("", "", "");
-                foreach (myOrder o in Inf)
+                var tempMyOrder = new Order("", "", "");
+                foreach (Order o in Inf)
                 {
-                    if(o.orderNum==border.orderNum&&o.goodsName==border.goodsName&&o.client==border.client)
+                    if (o.order == border.order && o.goods == border.goods && o.cl == border.cl)
                     {
                         tempMyOrder = o;
-                        if (orderNum != null) tempMyOrder.orderNum = orderNum;
-                        if (goodsName != null) tempMyOrder.goodsName = goodsName;
-                        if (client != null) tempMyOrder.client = client;
+                        if (orderNum != null) tempMyOrder.order = orderNum;
+                        if (goodsName != null) tempMyOrder.goods = goodsName;
+                        if (client != null) tempMyOrder.cl = client;
                     }
                 }
             }
-        }
-        //查询订单
-        public class OrderService:OrderDetails
-        {
             public void searchByNum(string x)
             {
-                foreach(myOrder o in Inf)
+                foreach(Order o in Inf)
                 {
-                    if (o.orderNum == x)
+                    if (o.order == x)
                     {
-                        Console.WriteLine("存在订单" + o.orderNum + o.goodsName + o.client);
+                        Console.WriteLine("存在订单" + o.order + o.goods + o.cl);
                     }
-                    if (o.goodsName == x)
+                    if (o.goods == x)
                     {
-                        Console.WriteLine("存在订单" + o.orderNum + o.goodsName + o.client);
+                        Console.WriteLine("存在订单" + o.order + o.goods + o.cl);
                     }
-                    if (o.client == x)
+                    if (o.cl == x)
                     {
-                        Console.WriteLine("存在订单" + o.orderNum + o.goodsName + o.client);
+                        Console.WriteLine("存在订单" + o.order + o.goods + o.cl);
                     }
                 }
             }
