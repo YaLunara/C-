@@ -65,18 +65,15 @@ namespace homework5
         /// <returns>List<Order></returns> 
         public List<Order> QueryOrderById(uint orderId)
         {
-            List<Order> result = new List<Order>();
+            //List<Order> result = new List<Order>();
             //if (orderDict.ContainsKey(orderId))
             //{
             //    result.Add(orderDict[orderId]);
             //}
             //return result;
-            var m = from n in result where n.OrderId == orderId select n;//用Linq查询
-            foreach(var x in m)
-            {
-                result.Add(x);
-            }
-            return result;
+            return orderDict.Values.ToList()
+                .Where(order => order.OrderId == orderId)
+                .ToList();
         }
 
         /// <summary>
@@ -102,8 +99,11 @@ namespace homework5
             foreach (Order order in orderDict.Values.ToList())
             {
                 List<OrderDetail> orderDetailsList = order.QueryAllOrderDetails();
+                //List<Order> orderList = orderDict.Values.ToList();
                 var m = from n in orderDetailsList where n.Goods.GoodsName == goodsName select n;//用Linq查询
-                result.Add(order);
+                m.ToList();
+                if (m != null)
+                    result.Add(order);
             }
             return result;
         }
@@ -122,12 +122,9 @@ namespace homework5
             //});
             //return result;
             List<Order> result = new List<Order>();
-            var m = from n in result where n.Customer.CustomerName == customerName select n;//用Linq查询
-            foreach (var x in m)
-            {
-                result.Add(x);
-            }
-            return result;
+            return orderDict.Values.ToList()
+                .Where(order => order.Customer.CustomerName == customerName)
+                .ToList();
         }
         public List<Order> MoreMoney()//用Linq查询大于1万元的订单
         {
@@ -136,7 +133,9 @@ namespace homework5
             {
                 List<OrderDetail> orderDetailsList = order.QueryAllOrderDetails();
                 var m = from n in orderDetailsList where n.Goods.GoodsValue>10000 select n;//用Linq查询
-                result.Add(order);
+                m.ToList();
+                if (m != null)
+                    result.Add(order);
             }
             return result;
         }
