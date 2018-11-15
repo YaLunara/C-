@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace homework7
+namespace homework8
 {
     public partial class FrmSearchOd : Form
     {

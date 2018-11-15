@@ -9,63 +9,59 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace homework7
+namespace homework8
 {
-    public partial class FrmSearchOd : Form
+    public partial class FrmChangeOdMsg : Form
     {
-        private string key;
         ListView orderList = new ListView();
-        List<Order> orders = new List<Order>();
-        public FrmSearchOd()
+        private uint odId = 0;
+        private uint detailId = 0;
+        public FrmChangeOdMsg()
         {
             InitializeComponent();
         }
 
-        private void FrmSearchOd_Load(object sender, EventArgs e)
+        public void ShowF3(string customerName,string goodName,string quantity,uint odId,uint detailId,MainForm1 form)
         {
-        }
-
-        private void SearchBy_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            key = SearchBy.Text;
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
+            this.txtCustomer.Text = customerName;
+            this.txtGoods.Text = goodName;
+            this.txtNums.Text = quantity;
+            this.odId = odId;
+            this.detailId = detailId;
+            this.orderList = form.orderList;
+            this.Show();
         }
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            switch(key)
+            if(txtCustomer != null && txtGoods != null && txtNums.Text != null)
             {
-                case "全部订单":
-                    orders = MainForm1.os.QueryAllOrders();
-                    break;
-                case "OrderId":
-                    Order order = MainForm1.os.GetById(Convert.ToUInt32(txtKeyWord.Text));
-                    orders.Clear();
-                    orders.Add(order);
-                    break;
-                case "CustomerName":
-                    orders = MainForm1.os.QueryByCustomerName(txtKeyWord.Text);
-                    break;
-                case "GoodsName":
-                    orders = MainForm1.os.QueryByGoodsName(txtKeyWord.Text);
-                    break;
+                Order changedOd = MainForm1.os.GetById(odId);
+                changedOd.Customer.Name = txtCustomer.Text;
+
+
+                foreach(OrderDetail odDetail in changedOd.Details)
+                {
+                    if(odDetail.Id == detailId)
+                    {
+                        odDetail.Goods.Name = txtGoods.Text;
+                        odDetail.Quantity = Convert.ToUInt32(txtNums.Text);
+                        break;
+                    }
+                }
+                getListMessages();
             }
-            getListMessages();
         }
 
-        public void ShowF4(MainForm1 form)
+        private void FrmChangeOdMsg_Load(object sender, EventArgs e)
         {
-            this.Show();
-            orderList = form.orderList;
+
         }
 
         public void getListMessages()
         {
             orderList.Items.Clear();
+            List<Order> orders = MainForm1.os.QueryAllOrders();
             foreach (Order od in orders)
             {
                 foreach (OrderDetail odDetails in od.Details)

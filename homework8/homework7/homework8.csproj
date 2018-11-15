@@ -7,8 +7,8 @@
     <ProjectGuid>{DBD94379-0BCF-488E-A042-15EC37BD8621}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>homework7</RootNamespace>
-    <AssemblyName>homework7</AssemblyName>
+    <RootNamespace>homework8</RootNamespace>
+    <AssemblyName>homework8</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

@@ -1,4 +1,4 @@
-﻿namespace homework7
+﻿namespace homework8
 {
     partial class MainForm1
     {
@@ -37,7 +37,7 @@
             this.customer = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Amount = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.orderDetailId = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Id = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.phoneNum = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.goodsName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Value = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.quantity = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -90,12 +90,15 @@
             // orderList
             // 
             this.orderList.Activation = System.Windows.Forms.ItemActivation.OneClick;
+            this.orderList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.orderList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.orderId,
             this.customer,
             this.Amount,
             this.orderDetailId,
-            this.Id,
+            this.phoneNum,
             this.goodsName,
             this.Value,
             this.quantity});
@@ -113,7 +116,7 @@
             // orderId
             // 
             this.orderId.Text = "orderId";
-            this.orderId.Width = 70;
+            this.orderId.Width = 134;
             // 
             // customer
             // 
@@ -130,19 +133,19 @@
             this.orderDetailId.Text = "orderDetailId";
             this.orderDetailId.Width = 120;
             // 
-            // Id
+            // phoneNum
             // 
-            this.Id.Text = "Id";
-            this.Id.Width = 40;
+            this.phoneNum.Text = "phoneNum";
+            this.phoneNum.Width = 112;
             // 
             // goodsName
             // 
             this.goodsName.Text = "goodsName";
-            this.goodsName.Width = 100;
+            this.goodsName.Width = 134;
             // 
             // Value
             // 
-            this.Value.Text = "Value";
+            this.Value.Text = "Price";
             // 
             // quantity
             // 
@@ -178,7 +181,7 @@
         private System.Windows.Forms.ColumnHeader customer;
         private System.Windows.Forms.ColumnHeader Amount;
         private System.Windows.Forms.ColumnHeader orderDetailId;
-        private System.Windows.Forms.ColumnHeader Id;
+        private System.Windows.Forms.ColumnHeader phoneNum;
         private System.Windows.Forms.ColumnHeader goodsName;
         private System.Windows.Forms.ColumnHeader Value;
         private System.Windows.Forms.ColumnHeader quantity;

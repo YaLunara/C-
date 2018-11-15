@@ -1,4 +1,4 @@
-﻿namespace homework7
+﻿namespace homework8
 {
     partial class FrmSearchOd
     {

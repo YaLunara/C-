@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace homework7
+namespace homework8
 {
     public partial class MainForm1 : Form
     {
@@ -33,11 +33,10 @@ namespace homework7
             {
                 currentIndex = this.orderList.SelectedItems[0].Index;//取当前选中项的index
 
-                uint odId = Convert.ToUInt32(orderList.Items[currentIndex].SubItems[0].Text);
-
-
-                os.RemoveOrder(odId);
-
+                string odId = orderList.Items[currentIndex].SubItems[0].Text;
+                uint.TryParse(odId.Remove(0, odId.Length - 3), out uint a);
+                uint id = Convert.ToUInt16(odId.Remove(0, odId.Length - 3));
+                os.RemoveOrder(id);
 
                 orderList.Items[currentIndex].Remove();
             }
@@ -58,6 +57,7 @@ namespace homework7
                 string txtCustomerName = orderList.Items[currentIndex].SubItems[1].Text;
                 string txtGoodName = orderList.Items[currentIndex].SubItems[5].Text;
                 string txtQuantity = orderList.Items[currentIndex].SubItems[7].Text;
+                
                 frm.ShowF3(txtCustomerName,txtGoodName,txtQuantity,odId,detailId,this);
             }
         }

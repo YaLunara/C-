@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace homework7.Properties {
+namespace homework8.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

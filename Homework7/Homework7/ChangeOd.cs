@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Homework7
+namespace homework7
 {
     public partial class FrmChangeOdMsg : Form
     {

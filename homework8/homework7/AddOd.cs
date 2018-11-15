@@ -6,16 +6,16 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace homework7
+namespace homework8
 {
     public partial class FrmAddOdMsg : Form
     {
         ListView orderList = new ListView();
         static int goodID = 1;
-        static int customerID = 1;
         static int orderDetailID = 1;
         static int orderID = 1;
 
@@ -30,11 +30,18 @@ namespace homework7
             String txtCustomerMsg = txtCustomer.Text;
             String txtGoodsMsg = txtGoods.Text;
             int txtNumsMsg = Convert.ToInt32(txtNums.Text);
-
-            if (txtCustomerMsg != null && txtGoodsMsg != null && txtNums.Text != null)
+            string txtCustomerIdMsg = txtCustomerId.Text;
+            Regex rx = new Regex("[0-9]{11}");
+            bool ok = rx.IsMatch(txtCustomerIdMsg);
+            //判断电话号码输入是否符合格式
+            if (!ok)
             {
-                Customer customer = new Customer((uint)customerID, txtCustomerMsg);
-                customerID++;
+                this.errorProvider1.SetError(this.txtCustomerId, "电话号码格式错误");
+            }
+
+            if (txtCustomerMsg != null && txtGoodsMsg != null && txtNums.Text != null&& ok)
+            {
+                Customer customer = new Customer(txtCustomerIdMsg, txtCustomerMsg);
                 Goods good = new Goods((uint)goodID, txtGoodsMsg, 0);
                 goodID++;
                 OrderDetail orderDetail = new OrderDetail((uint)orderDetailID, good, (uint)txtNumsMsg);
@@ -61,7 +68,7 @@ namespace homework7
                     item.SubItems.Add(od.Customer.Name);
                     item.SubItems.Add(od.Amount.ToString());
                     item.SubItems.Add(odDetails.Id.ToString());
-                    item.SubItems.Add(odDetails.Goods.Id.ToString());
+                    item.SubItems.Add(od.Customer.Id);
                     item.SubItems.Add(odDetails.Goods.Name);
                     item.SubItems.Add(odDetails.Goods.Price.ToString());
                     item.SubItems.Add(odDetails.Quantity.ToString());
@@ -85,5 +92,6 @@ namespace homework7
         {
 
         }
+
     }
 }
