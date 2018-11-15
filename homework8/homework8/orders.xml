@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-16"?>
 <ArrayOfOrder xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Order>
-    <Id>20181115001</Id>
+    <Id>20181116001</Id>
     <Customer>
-      <Id>213</Id>
-      <Name>87897987</Name>
+      <Id>12345678900</Id>
+      <Name>111</Name>
     </Customer>
     <Amount>0</Amount>
     <Details>
@@ -12,18 +12,18 @@
         <Id>1</Id>
         <Goods>
           <Id>1</Id>
-          <Name>9798</Name>
+          <Name>22</Name>
           <Price>0</Price>
         </Goods>
-        <Quantity>79</Quantity>
+        <Quantity>3</Quantity>
       </OrderDetail>
     </Details>
   </Order>
   <Order>
-    <Id>20181115002</Id>
+    <Id>20181116002</Id>
     <Customer>
-      <Id>213</Id>
-      <Name>87897987</Name>
+      <Id>12345678900</Id>
+      <Name>111</Name>
     </Customer>
     <Amount>0</Amount>
     <Details>
@@ -31,18 +31,18 @@
         <Id>2</Id>
         <Goods>
           <Id>2</Id>
-          <Name>9798</Name>
+          <Name>22</Name>
           <Price>0</Price>
         </Goods>
-        <Quantity>79</Quantity>
+        <Quantity>3</Quantity>
       </OrderDetail>
     </Details>
   </Order>
   <Order>
-    <Id>20181115003</Id>
+    <Id>20181116003</Id>
     <Customer>
-      <Id>213</Id>
-      <Name>87897987</Name>
+      <Id>12345678900</Id>
+      <Name>111</Name>
     </Customer>
     <Amount>0</Amount>
     <Details>
@@ -50,18 +50,18 @@
         <Id>3</Id>
         <Goods>
           <Id>3</Id>
-          <Name>9798</Name>
+          <Name>22</Name>
           <Price>0</Price>
         </Goods>
-        <Quantity>79</Quantity>
+        <Quantity>3</Quantity>
       </OrderDetail>
     </Details>
   </Order>
   <Order>
-    <Id>20181115004</Id>
+    <Id>20181116004</Id>
     <Customer>
-      <Id>213</Id>
-      <Name>87897987</Name>
+      <Id>12345678900</Id>
+      <Name>111</Name>
     </Customer>
     <Amount>0</Amount>
     <Details>
@@ -69,48 +69,10 @@
         <Id>4</Id>
         <Goods>
           <Id>4</Id>
-          <Name>9798</Name>
+          <Name>22</Name>
           <Price>0</Price>
         </Goods>
-        <Quantity>79</Quantity>
-      </OrderDetail>
-    </Details>
-  </Order>
-  <Order>
-    <Id>20181115005</Id>
-    <Customer>
-      <Id>213</Id>
-      <Name>87897987</Name>
-    </Customer>
-    <Amount>0</Amount>
-    <Details>
-      <OrderDetail>
-        <Id>5</Id>
-        <Goods>
-          <Id>5</Id>
-          <Name>9798</Name>
-          <Price>0</Price>
-        </Goods>
-        <Quantity>79</Quantity>
-      </OrderDetail>
-    </Details>
-  </Order>
-  <Order>
-    <Id>20181115006</Id>
-    <Customer>
-      <Id>213</Id>
-      <Name>87897987</Name>
-    </Customer>
-    <Amount>0</Amount>
-    <Details>
-      <OrderDetail>
-        <Id>6</Id>
-        <Goods>
-          <Id>6</Id>
-          <Name>9798</Name>
-          <Price>0</Price>
-        </Goods>
-        <Quantity>79</Quantity>
+        <Quantity>3</Quantity>
       </OrderDetail>
     </Details>
   </Order>

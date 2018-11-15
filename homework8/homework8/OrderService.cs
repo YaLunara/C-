@@ -119,7 +119,7 @@ namespace ordertest {
             {
                 XmlSerializer xmlSerializer = new XmlSerializer(typeof(List<Order>));
                 xmlSerializer.Serialize(stringWriter, Orders);
-                FileStream fs = new FileStream("orders.xml", FileMode.Create);
+                FileStream fs = new FileStream("../../orders.xml", FileMode.Create);
                 StreamWriter sw = new StreamWriter(fs, Encoding.UTF8);
                 sw.Write(stringWriter.ToString());
                 sw.Close();
@@ -132,14 +132,14 @@ namespace ordertest {
         {
             ExportXML();
             //XPathDocument myXPathDoc = new XPathDocument();
-            string xmlContent = File.ReadAllText("orders.xml");
+            string xmlContent = File.ReadAllText("../../orders.xml");
             XmlDocument xmlDoc = new XmlDocument();
             xmlDoc.LoadXml(xmlContent);
 
 
             XslCompiledTransform myXslTrans = new XslCompiledTransform();
-            myXslTrans.Load("orders.xslt");
-            XmlTextWriter myWriter = new XmlTextWriter("result.html", null);
+            myXslTrans.Load("../../orders.xslt");
+            XmlTextWriter myWriter = new XmlTextWriter("../../result.html", null);
             myXslTrans.Transform(xmlDoc, null, myWriter);
             myWriter.Flush();
             myWriter.Close();

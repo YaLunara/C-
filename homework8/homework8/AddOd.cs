@@ -33,7 +33,7 @@ namespace homework8
             string txtCustomerIdMsg = txtCustomerId.Text;
             Regex rx = new Regex("[0-9]{11}");
             bool ok = rx.IsMatch(txtCustomerIdMsg);
-            判断电话号码输入是否符合格式
+            //判断电话号码输入是否符合格式
             if (!ok)
             {
                 this.errorProvider1.SetError(this.txtCustomerId, "电话号码格式错误");
