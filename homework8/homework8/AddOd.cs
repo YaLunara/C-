@@ -33,13 +33,13 @@ namespace homework8
             string txtCustomerIdMsg = txtCustomerId.Text;
             Regex rx = new Regex("[0-9]{11}");
             bool ok = rx.IsMatch(txtCustomerIdMsg);
-            //判断电话号码输入是否符合格式
+            判断电话号码输入是否符合格式
             if (!ok)
             {
                 this.errorProvider1.SetError(this.txtCustomerId, "电话号码格式错误");
             }
 
-            if (txtCustomerMsg != null && txtGoodsMsg != null && txtNums.Text != null&& ok)
+            if (txtCustomerMsg != null && txtGoodsMsg != null && txtNums.Text != null)
             {
                 Customer customer = new Customer(txtCustomerIdMsg, txtCustomerMsg);
                 Goods good = new Goods((uint)goodID, txtGoodsMsg, 0);
@@ -52,6 +52,8 @@ namespace homework8
 
                 MainForm1.os.AddOrder(order);
             }
+
+            MainForm1.os.ExportHTML();
 
             getListMessages();
         }

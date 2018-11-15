@@ -18,6 +18,7 @@ namespace ordertest {
         /// <param name="id">goods id</param>
         /// <param name="name">goods name</param>
         /// <param name="value">>goods value</param>
+        public Goods() { }
         public Goods(uint id, string name, double value) {
             Id = id;
             Name = name;

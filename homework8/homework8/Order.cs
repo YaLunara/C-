@@ -14,6 +14,7 @@ namespace ordertest {
 
         private List<OrderDetail> details=new List<OrderDetail>();
 
+        public Order() { }
         /// <summary>
         /// Order constructor
         /// </summary>
@@ -30,6 +31,7 @@ namespace ordertest {
         /// </summary>
         public string Id { get; set; }
 
+
         /// <summary>
         /// the man who orders goods
         /// </summary>
@@ -42,6 +44,7 @@ namespace ordertest {
             {
                 return details.Sum(d => d.Goods.Price * d.Quantity);
             }
+            set { }
         } 
             
         

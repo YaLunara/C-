@@ -10,6 +10,7 @@ namespace ordertest
     /// Customer the man who orders goods.
     /// </summary>
     public class Customer {
+        public Customer() { }
 
         /// <summary>
         /// customer's identifier

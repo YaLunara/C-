@@ -17,6 +17,8 @@ namespace ordertest {
         /// <param name="id">orderDetail's id</param>
         /// <param name="goods">orderDetail's goods</param>
         /// <param name="quantity">goods quantity</param>
+        
+        public OrderDetail() { }
         public OrderDetail(uint id, Goods goods, uint quantity) {
             this.Id = id;
             this.Goods = goods;

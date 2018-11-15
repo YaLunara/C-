@@ -5,6 +5,10 @@ using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
+using System.Xml.Serialization;
+using System.Xml.XPath;
+using System.Xml.Xsl;
 
 namespace ordertest {
     /// <summary>
@@ -86,9 +90,10 @@ namespace ordertest {
 
         public List<Order> QueryByPrice(double price)
         {
-            var query = orderDict.Values
-                .Where(order => order.Amount> price);
-            return query.ToList();
+            //var query = orderDict.Values
+            //    .Where(order => order.Amount> price);
+            //return query.ToList();
+            return null;
         }
 
 
@@ -104,20 +109,42 @@ namespace ordertest {
                 throw new Exception($"order-{orderId} is not existed!");
             }
         }
-        //public List<Order> Orders
-        //{
-        //    get { return orderDict.Values.ToList(); }
-        //}
-        //public void Export()
-        //{
+        public List<Order> Orders
+        {
+            get { return orderDict.Values.ToList(); }
+        }
+        public void ExportXML()//输出为xml文件
+        {
+            using (StringWriter stringWriter = new StringWriter(new StringBuilder()))
+            {
+                XmlSerializer xmlSerializer = new XmlSerializer(typeof(List<Order>));
+                xmlSerializer.Serialize(stringWriter, Orders);
+                FileStream fs = new FileStream("orders.xml", FileMode.Create);
+                StreamWriter sw = new StreamWriter(fs, Encoding.UTF8);
+                sw.Write(stringWriter.ToString());
+                sw.Close();
+                fs.Close();
+            }
 
-        //    //XmlSerializer xs = new XmlSerializer(typeof(List<Order>));
-        //    BinaryFormatter bf = new BinaryFormatter();
-        //    using (FileStream fs = new FileStream("List.xml", FileMode.Create))
-        //    {
-        //        bf.Serialize(fs, Orders);
-        //    }
-        //}
-        ///*other edit function with write in the future.*/
+        }
+
+        public void ExportHTML()
+        {
+            ExportXML();
+            //XPathDocument myXPathDoc = new XPathDocument();
+            string xmlContent = File.ReadAllText("orders.xml");
+            XmlDocument xmlDoc = new XmlDocument();
+            xmlDoc.LoadXml(xmlContent);
+
+
+            XslCompiledTransform myXslTrans = new XslCompiledTransform();
+            myXslTrans.Load("orders.xslt");
+            XmlTextWriter myWriter = new XmlTextWriter("result.html", null);
+            myXslTrans.Transform(xmlDoc, null, myWriter);
+            myWriter.Flush();
+            myWriter.Close();
+
+        }
+        /*other edit function with write in the future.*/
     }
 }
