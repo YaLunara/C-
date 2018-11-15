@@ -44,7 +44,7 @@
             // 
             // txtCustomer
             // 
-            this.txtCustomer.Location = new System.Drawing.Point(269, 66);
+            this.txtCustomer.Location = new System.Drawing.Point(269, 40);
             this.txtCustomer.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtCustomer.Name = "txtCustomer";
             this.txtCustomer.Size = new System.Drawing.Size(176, 28);
@@ -53,7 +53,7 @@
             // labCustomer
             // 
             this.labCustomer.AutoSize = true;
-            this.labCustomer.Location = new System.Drawing.Point(138, 70);
+            this.labCustomer.Location = new System.Drawing.Point(138, 43);
             this.labCustomer.Name = "labCustomer";
             this.labCustomer.Size = new System.Drawing.Size(80, 18);
             this.labCustomer.TabIndex = 1;
@@ -63,7 +63,7 @@
             // labGoods
             // 
             this.labGoods.AutoSize = true;
-            this.labGoods.Location = new System.Drawing.Point(138, 124);
+            this.labGoods.Location = new System.Drawing.Point(138, 101);
             this.labGoods.Name = "labGoods";
             this.labGoods.Size = new System.Drawing.Size(80, 18);
             this.labGoods.TabIndex = 3;
@@ -71,7 +71,7 @@
             // 
             // txtGoods
             // 
-            this.txtGoods.Location = new System.Drawing.Point(269, 120);
+            this.txtGoods.Location = new System.Drawing.Point(269, 98);
             this.txtGoods.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtGoods.Name = "txtGoods";
             this.txtGoods.Size = new System.Drawing.Size(176, 28);
@@ -80,7 +80,7 @@
             // labNums
             // 
             this.labNums.AutoSize = true;
-            this.labNums.Location = new System.Drawing.Point(138, 176);
+            this.labNums.Location = new System.Drawing.Point(138, 159);
             this.labNums.Name = "labNums";
             this.labNums.Size = new System.Drawing.Size(80, 18);
             this.labNums.TabIndex = 5;
@@ -88,7 +88,7 @@
             // 
             // txtNums
             // 
-            this.txtNums.Location = new System.Drawing.Point(269, 173);
+            this.txtNums.Location = new System.Drawing.Point(269, 156);
             this.txtNums.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtNums.Name = "txtNums";
             this.txtNums.Size = new System.Drawing.Size(176, 28);
@@ -96,7 +96,7 @@
             // 
             // btnOK
             // 
-            this.btnOK.Location = new System.Drawing.Point(141, 276);
+            this.btnOK.Location = new System.Drawing.Point(141, 278);
             this.btnOK.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(304, 41);
@@ -107,7 +107,7 @@
             // 
             // txtCustomerId
             // 
-            this.txtCustomerId.Location = new System.Drawing.Point(269, 224);
+            this.txtCustomerId.Location = new System.Drawing.Point(269, 217);
             this.txtCustomerId.Name = "txtCustomerId";
             this.txtCustomerId.Size = new System.Drawing.Size(176, 28);
             this.txtCustomerId.TabIndex = 7;
@@ -115,7 +115,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(138, 227);
+            this.label1.Location = new System.Drawing.Point(138, 220);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(80, 18);
             this.label1.TabIndex = 8;
