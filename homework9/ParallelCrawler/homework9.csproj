@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0690F611-22EF-4C8F-AEA8-44F653C5C427}</ProjectGuid>
+    <ProjectGuid>{38447374-8438-4FFD-A842-E2DE3B673B74}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>homework9</RootNamespace>
-    <AssemblyName>homework9</AssemblyName>
+    <RootNamespace>ParallelCrawler</RootNamespace>
+    <AssemblyName>ParallelCrawler</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,7 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Clawer.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

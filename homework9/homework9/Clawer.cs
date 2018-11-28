@@ -16,18 +16,6 @@ namespace homework9
         private Hashtable urls = new Hashtable();
         private int count = 0;
 
-        static void Main(string[] args)
-        {
-            Clawler myCrawler = new Clawler();
-
-            string startUrl = "";//开始的网址
-            if (args.Length >= 1) startUrl = args[0];
-
-            myCrawler.urls.Add(startUrl, false);//加入初始页面
-
-            new Thread(myCrawler.Crawl).Start();
-        }
-
         private void Crawl()
         {
             Console.WriteLine("开始爬行了......");
@@ -71,7 +59,6 @@ namespace homework9
                 return "";
             }
         }
-
 
         public void Parse(string html)
         {

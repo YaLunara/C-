@@ -39,7 +39,7 @@ namespace homework8
                 this.errorProvider1.SetError(this.txtCustomerId, "电话号码格式错误");
             }
 
-            if (txtCustomerMsg != null && txtGoodsMsg != null && txtNums.Text != null)
+            if (txtCustomerMsg != null && txtGoodsMsg != null && txtNums.Text != null&& ok )
             {
                 Customer customer = new Customer(txtCustomerIdMsg, txtCustomerMsg);
                 Goods good = new Goods((uint)goodID, txtGoodsMsg, 0);
