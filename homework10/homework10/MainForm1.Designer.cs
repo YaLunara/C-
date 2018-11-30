@@ -45,10 +45,9 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(42, 60);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnAdd.Location = new System.Drawing.Point(37, 50);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(135, 67);
+            this.btnAdd.Size = new System.Drawing.Size(120, 56);
             this.btnAdd.TabIndex = 0;
             this.btnAdd.Text = "添加订单";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -56,10 +55,9 @@
             // 
             // btnRemove
             // 
-            this.btnRemove.Location = new System.Drawing.Point(42, 199);
-            this.btnRemove.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnRemove.Location = new System.Drawing.Point(37, 166);
             this.btnRemove.Name = "btnRemove";
-            this.btnRemove.Size = new System.Drawing.Size(135, 67);
+            this.btnRemove.Size = new System.Drawing.Size(120, 56);
             this.btnRemove.TabIndex = 1;
             this.btnRemove.Text = "删除订单";
             this.btnRemove.UseVisualStyleBackColor = true;
@@ -67,10 +65,9 @@
             // 
             // btnChange
             // 
-            this.btnChange.Location = new System.Drawing.Point(42, 344);
-            this.btnChange.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnChange.Location = new System.Drawing.Point(37, 287);
             this.btnChange.Name = "btnChange";
-            this.btnChange.Size = new System.Drawing.Size(135, 67);
+            this.btnChange.Size = new System.Drawing.Size(120, 56);
             this.btnChange.TabIndex = 2;
             this.btnChange.Text = "修改订单";
             this.btnChange.UseVisualStyleBackColor = true;
@@ -78,10 +75,9 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(42, 480);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnSearch.Location = new System.Drawing.Point(37, 400);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(135, 67);
+            this.btnSearch.Size = new System.Drawing.Size(120, 56);
             this.btnSearch.TabIndex = 3;
             this.btnSearch.Text = "查询订单";
             this.btnSearch.UseVisualStyleBackColor = true;
@@ -104,10 +100,9 @@
             this.quantity});
             this.orderList.HotTracking = true;
             this.orderList.HoverSelection = true;
-            this.orderList.Location = new System.Drawing.Point(279, 60);
-            this.orderList.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.orderList.Location = new System.Drawing.Point(248, 50);
             this.orderList.Name = "orderList";
-            this.orderList.Size = new System.Drawing.Size(907, 533);
+            this.orderList.Size = new System.Drawing.Size(807, 445);
             this.orderList.TabIndex = 4;
             this.orderList.UseCompatibleStateImageBehavior = false;
             this.orderList.View = System.Windows.Forms.View.Details;
@@ -154,17 +149,17 @@
             // 
             // MainForm1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1240, 672);
+            this.ClientSize = new System.Drawing.Size(1102, 560);
             this.Controls.Add(this.orderList);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.btnChange);
             this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.btnAdd);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "MainForm1";
             this.Text = "HandleServices";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
 

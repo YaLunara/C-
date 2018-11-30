@@ -15,9 +15,13 @@ namespace homework10
     public partial class FrmAddOdMsg : Form
     {
         ListView orderList = new ListView();
-        static int goodID = 1;
-        static int orderDetailID = 1;
-        static int orderID = 1;
+        private int goodID;
+        private int orderDetailID;
+        private static int orderID = 1;
+        private Order order = new Order();
+        private Customer customer = new Customer();
+        private OrderService os = new OrderService();
+        private string dateString = DateTime.Now.ToString().Replace(@"[^\d]*", "");
 
         public FrmAddOdMsg()
         {
@@ -27,67 +31,53 @@ namespace homework10
         private void btnOK_Click(object sender, EventArgs e)
         {
             //获取文本框信息
-            String txtCustomerMsg = txtCustomer.Text;
-            String txtGoodsMsg = txtGoods.Text;
-            int txtNumsMsg = Convert.ToInt32(txtNums.Text);
+            string txtCustomerMsg = txtCustomer.Text;
+            string txtGoodsMsg = txtGoods.Text; 
+            string txtNumsMsg = txtNums.Text;
             string txtCustomerIdMsg = txtCustomerId.Text;
+
+            //判断电话号码输入是否符合格式
             Regex rx = new Regex("[0-9]{11}");
             bool ok = rx.IsMatch(txtCustomerIdMsg);
-            //判断电话号码输入是否符合格式
             if (!ok)
             {
-                this.errorProvider1.SetError(this.txtCustomerId, "电话号码格式错误");
+                errorProvider1.SetError(txtCustomerId, "电话号码格式错误");
             }
 
-            if (txtCustomerMsg != null && txtGoodsMsg != null && txtNums.Text != null && ok )
+            //判断文本框信息是否为空
+            if (txtCustomerMsg != null && txtGoodsMsg != null && txtNums.Text != null)
             {
-                Customer customer = new Customer(txtCustomerIdMsg, txtCustomerMsg);
-                Goods good = new Goods(goodID.ToString(), txtGoodsMsg, 0);
+                
+                customer.Id = txtCustomerIdMsg;
+                customer.Name = txtCustomerMsg;
+                txtCustomerId.Enabled = false;
+                txtCustomer.Enabled = false;
+
+                Goods good = new Goods(goodID.ToString() + dateString, txtGoodsMsg, 0);
                 goodID++;
-                OrderDetail orderDetail = new OrderDetail(orderDetailID.ToString(), good, (uint)txtNumsMsg);
+                OrderDetail orderDetail = new OrderDetail(orderDetailID.ToString()+dateString, good, (uint)Convert.ToInt32(txtNumsMsg));
                 orderDetailID++;
-                Order order = new Order((uint)orderID, customer);
-                orderID++;
-                order.AddDetails(orderDetail);
 
-                MainForm1.os.AddOrder(order);
+                order.Customer = customer;
+                order.Details.Add(orderDetail); 
             }
 
-            MainForm1.os.ExportHTML();
-
-            getListMessages();
+            
         }
 
-        public void getListMessages()
-        {
-            orderList.Items.Clear();
-            List<Order> orders = MainForm1.os.QueryAllOrders();
-            foreach (Order od in orders)
-            {
-                foreach (OrderDetail odDetails in od.Details)
-                {
-                    ListViewItem item = new ListViewItem(od.Id.ToString());
-                    item.SubItems.Add(od.Customer.Name);
-                    item.SubItems.Add(od.Amount.ToString());
-                    item.SubItems.Add(odDetails.Id.ToString());
-                    item.SubItems.Add(od.Customer.Id);
-                    item.SubItems.Add(odDetails.Goods.Name);
-                    item.SubItems.Add(odDetails.Goods.Price.ToString());
-                    item.SubItems.Add(odDetails.Quantity.ToString());
-                    orderList.Items.Add(item);
-                }
-            }
-        }
 
-        public void ShowF2(MainForm1 form1)
+        public void ShowF2(MainForm1 form1,OrderService os)
         {
             this.Show();
             this.orderList = form1.orderList;
+            this.os = os;
         }
 
         private void FrmAddOdMsg_Load(object sender, EventArgs e)
-        {
-
+        { 
+            goodID = 1;
+            orderDetailID = 1;
+            order.Id = orderID.ToString() + dateString;
         }
 
         private void labCustomer_Click(object sender, EventArgs e)
@@ -95,5 +85,17 @@ namespace homework10
 
         }
 
+        private void FrmAddOdMsg_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            
+        }
+
+        private void FrmAddOdMsg_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            os.Add(order);
+            orderID++;
+            List<Order> orders = os.SaveOrders;
+            ShowMessage.showOrderMessages(orders, orderList);//显示信息
+        }
     }
 }

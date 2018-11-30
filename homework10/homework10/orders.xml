@@ -1,78 +1,30 @@
 ﻿<?xml version="1.0" encoding="utf-16"?>
 <ArrayOfOrder xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Order>
-    <Id>20181116001</Id>
+    <Id>12018/11/30 8:03:52</Id>
     <Customer>
-      <Id>12345678900</Id>
-      <Name>111</Name>
+      <Id>12331212311</Id>
+      <Name>12312</Name>
     </Customer>
     <Amount>0</Amount>
     <Details>
       <OrderDetail>
-        <Id>1</Id>
+        <Id>12018/11/30 8:03:52</Id>
         <Goods>
-          <Id>1</Id>
-          <Name>22</Name>
+          <Id>12018/11/30 8:03:52</Id>
+          <Name>3</Name>
           <Price>0</Price>
         </Goods>
-        <Quantity>3</Quantity>
+        <Quantity>11</Quantity>
       </OrderDetail>
-    </Details>
-  </Order>
-  <Order>
-    <Id>20181116002</Id>
-    <Customer>
-      <Id>12345678900</Id>
-      <Name>111</Name>
-    </Customer>
-    <Amount>0</Amount>
-    <Details>
       <OrderDetail>
-        <Id>2</Id>
+        <Id>22018/11/30 8:03:52</Id>
         <Goods>
-          <Id>2</Id>
-          <Name>22</Name>
+          <Id>22018/11/30 8:03:52</Id>
+          <Name>3</Name>
           <Price>0</Price>
         </Goods>
-        <Quantity>3</Quantity>
-      </OrderDetail>
-    </Details>
-  </Order>
-  <Order>
-    <Id>20181116003</Id>
-    <Customer>
-      <Id>12345678900</Id>
-      <Name>111</Name>
-    </Customer>
-    <Amount>0</Amount>
-    <Details>
-      <OrderDetail>
-        <Id>3</Id>
-        <Goods>
-          <Id>3</Id>
-          <Name>22</Name>
-          <Price>0</Price>
-        </Goods>
-        <Quantity>3</Quantity>
-      </OrderDetail>
-    </Details>
-  </Order>
-  <Order>
-    <Id>20181116004</Id>
-    <Customer>
-      <Id>12345678900</Id>
-      <Name>111</Name>
-    </Customer>
-    <Amount>0</Amount>
-    <Details>
-      <OrderDetail>
-        <Id>4</Id>
-        <Goods>
-          <Id>4</Id>
-          <Name>22</Name>
-          <Price>0</Price>
-        </Goods>
-        <Quantity>3</Quantity>
+        <Quantity>113</Quantity>
       </OrderDetail>
     </Details>
   </Order>

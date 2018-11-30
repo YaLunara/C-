@@ -16,6 +16,7 @@ namespace homework10
         private string key;
         ListView orderList = new ListView();
         List<Order> orders = new List<Order>();
+        private OrderService os;
         public FrmSearchOd()
         {
             InitializeComponent();
@@ -23,6 +24,7 @@ namespace homework10
 
         private void FrmSearchOd_Load(object sender, EventArgs e)
         {
+            
         }
 
         private void SearchBy_SelectedIndexChanged(object sender, EventArgs e)
@@ -40,47 +42,29 @@ namespace homework10
             switch(key)
             {
                 case "全部订单":
-                    orders = MainForm1.os.QueryAllOrders();
+                    orders = os.GetAllOrders();
                     break;
                 case "OrderId":
-                    Order order = MainForm1.os.GetOrder(txtKeyWord.Text);
+                    Order order = os.GetOrder(txtKeyWord.Text);
                     orders.Clear();
                     orders.Add(order);
                     break;
                 case "CustomerName":
-                    orders = MainForm1.os.QueryByCustomerName(txtKeyWord.Text);
+                    orders = os.QueryByCustormer(txtKeyWord.Text);
                     break;
                 case "GoodsName":
-                    orders = MainForm1.os.QueryByGoodsName(txtKeyWord.Text);
+                    orders = os.QueryByGoods(txtKeyWord.Text);
                     break;
             }
-            getListMessages();
+            ShowMessage.showOrderMessages(orders, orderList);
         }
 
-        public void ShowF4(MainForm1 form)
+        public void ShowF4(MainForm1 form,OrderService os)
         {
             this.Show();
             orderList = form.orderList;
-        }
-
-        public void getListMessages()
-        {
-            orderList.Items.Clear();
-            foreach (Order od in orders)
-            {
-                foreach (OrderDetail odDetails in od.Details)
-                {
-                    ListViewItem item = new ListViewItem(od.Id.ToString());
-                    item.SubItems.Add(od.Customer.Name);
-                    item.SubItems.Add(od.Amount.ToString());
-                    item.SubItems.Add(odDetails.Id.ToString());
-                    item.SubItems.Add(odDetails.Goods.Id.ToString());
-                    item.SubItems.Add(odDetails.Goods.Name);
-                    item.SubItems.Add(odDetails.Goods.Price.ToString());
-                    item.SubItems.Add(odDetails.Quantity.ToString());
-                    orderList.Items.Add(item);
-                }
-            }
+            this.os = os;
+            
         }
     }
 }

@@ -15,23 +15,6 @@ namespace ordertest {
         [Key]
         public string Id { get; set; }
 
-        public Customer Customer { get; set; }
-        public double Amount
-        {
-            get
-            {
-                return details.Sum(d => d.Goods.Price * d.Quantity);
-            }
-            set { }
-        }
-        public List<OrderDetail> Details
-        {
-            get
-            {
-                return this.details;
-            }
-        }
-
         private List<OrderDetail> details=new List<OrderDetail>();
 
         public Order() { }
@@ -40,12 +23,33 @@ namespace ordertest {
         /// </summary>
         /// <param name="orderId">order id</param>
         /// <param name="customer">who orders goods</param>
-        public Order(uint orderId, Customer customer) {
+        public Order(string orderId, Customer customer) {
             DateTime dt = DateTime.Now;
-            Id = dt.Year.ToString("0000") + dt.Month.ToString("00") + dt.Day.ToString("00") + orderId.ToString("000");
+            Id = orderId;
             Customer = customer;
         }
 
+        /// <summary>
+        /// the man who orders goods
+        /// </summary>
+        public Customer Customer { get; set; }
+
+
+        public double Amount
+        {
+            get;
+            set;
+        } 
+            
+        
+        public List<OrderDetail> Details {
+            set { }
+            get
+            {
+                return this.details;
+            }
+           
+        }
 
         /// <summary>
         /// add new orderDetail to order
@@ -64,18 +68,6 @@ namespace ordertest {
         /// <param name="orderDetailId">id of the orderDetail which will be removed</param>
         public void RemoveDetails(string orderDetailId) {
             details.RemoveAll(d =>d.Id==orderDetailId);
-        }
-
-        /// <summary>
-        /// override ToString
-        /// </summary>
-        /// <returns>string:message of the Order object</returns>
-        public override string ToString() {
-            string result = "================================================================================\n";
-            result += $"orderId:{Id}, customer:({Customer.Name}),Amount:{Amount}";
-            details.ForEach(od => result += "\n\t" + od);
-            result += "\n================================================================================";
-            return result;
         }
     }
 }

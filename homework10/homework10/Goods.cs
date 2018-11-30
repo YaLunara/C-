@@ -10,22 +10,6 @@ namespace ordertest {
     /// Goods class:the message of goods
     /// </summary>
     public class Goods {
-        [Key]
-        public string Id { get; set; }
-
-        private double price;
-        public string Name { get; set; }
-        public double Price
-        {
-            get { return price; }
-            set
-            {
-                if (value < 0)
-                    throw new ArgumentOutOfRangeException("value must >= 0!");
-                price = value;
-            }
-        }
-
         public Goods() { }
         public Goods(string id, string name, double value) {
             Id = id;
@@ -33,12 +17,21 @@ namespace ordertest {
             Price = value;
         }
 
+        [Key]
+        public string Id { get; set; }
+
         /// <summary>
-        /// override ToString
+        /// property : goods name
         /// </summary>
-        /// <returns>string:message of the Goods object</returns>
-        public override string ToString() {
-            return $"Id:{Id}, Name:{Name}, Value:{Price}";
+        public string Name { get; set; }
+
+        /// <summary>
+        /// property : goods value
+        /// </summary>
+        public double Price {
+            get;
+            set;
+            
         }
     }
 }

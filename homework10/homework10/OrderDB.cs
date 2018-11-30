@@ -1,19 +1,24 @@
-﻿using ordertest;
-using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace homework10
+﻿namespace homework10
 {
-    public class OrderDB : DbContext//继承DbContext类
+    using ordertest;
+    using System;
+    using System.Data.Entity;
+    using System.Linq;
+
+    public class OrderDB : DbContext
     {
-        public OrderDB() : base("OrderDataBase") { }//指定contextString
-        public DbSet<Order> Order { get; set; }
-        public DbSet<OrderDetail> OrderDetail { get; set; }
-        public DbSet<Goods> Goods { get; set; }
-        public DbSet<Customer> Customer { get; set; }
+        public OrderDB()
+            : base("OrderDataBase")
+        {
+        }
+
+        public DbSet<Order> Order { set; get; }
+
+        public DbSet<OrderDetail> OrderDetail { set; get; }
+
+        public DbSet<Customer> Customer { set; get; }
+
+        public DbSet<Goods> Goods { set; get; }
+
     }
 }
